@@ -1,0 +1,30 @@
+{
+  "name": "test-auth",
+  "version": "1.0.0",
+  "author": "RosePinkDragon",
+  "license": "MIT",
+  "scripts": {
+    "dev": "nodemon --exec \"node -r esbuild-register ./src/index.ts\" -e .ts",
+    "lint": "tsc --noEmit && eslint \"src/**/*.ts*\"",
+    "start": "node -r esbuild-register ./src/index.ts",
+    "build": "prisma generate && esbuild src/index.ts --bundle --packages=external --platform=node --sourcemap --outdir=dist --minify --tree-shaking=true"
+  },
+  "dependencies": {
+    "@auth/core": "^0.23.0",
+    "@auth/express": "^0.3.0",
+    "@auth/prisma-adapter": "^1.0.17",
+    "@prisma/client": "4.15.0",
+    "dotenv": "^16.1.4",
+    "express": "4.18.2"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.17",
+    "@types/node": "^20.11.7",
+    "esbuild": "^0.17.19",
+    "esbuild-register": "^3.4.2",
+    "eslint": "^8.42.0",
+    "nodemon": "^3.0.3",
+    "ts-mocha": "^10.0.0",
+    "typescript": "^5.1.3"
+  }
+}
